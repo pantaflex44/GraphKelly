@@ -33,6 +33,7 @@
     --focus: #aaa;
     --dark: #666;
     --darker: #111;
+	--gk: #672a48;
 
     --primary-lighter: #09816c;
     --primary-light: #4fbe9f;
@@ -337,30 +338,32 @@ html {
 	font-family: 'Domine', serif;
 }
 .ui figure {
-	font-size: 1em;
-	margin: auto;
-	max-width: 70%;
-}
-.ui figure > blockquote ~ figure {
-	padding-left: 1em;
+	margin: 3em 0;
 }
 .ui blockquote {
 	position: relative;
-	margin: auto;
-	max-width: 70%;
-}
-.ui figure > blockquote {
-	max-width: 100%;
-	line-height: var(--line-height);
+	margin: 4em 0;
+	padding: 1em 10%;
 }
 .ui blockquote::before {
 	content: "\f10d";
-	left: -0.2em;
-	top: -0.2em;
+	left: -1em;
+	top: -0.1em;
 	position: absolute;
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
-	font-size: 10vw;
+	font-size: 8vw;
+	color: var(--lighter);
+	z-index: -1000;
+}
+.ui blockquote::after {
+	content: "\f10e";
+	right: -1em;
+	bottom: -0.1em;
+	position: absolute;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 8vw;
 	color: var(--lighter);
 	z-index: -1000;
 }
@@ -369,19 +372,24 @@ html {
 	font-family: 'Domine';
 	font-size: 1.5em;
 	padding: 0;
-	padding-left: 0.5em;
 	margin: 0;
-	margin-bottom: 0.5em;
-	margin-top: 2em;
 	color: var(--dark);
 }
-.ui figure > blockquote + figcaption,
+.ui figure > blockquote {
+	font-size: 1.2em;
+	padding: 1em 2em;
+}
+.ui figure > blockquote + figcaption {
+	text-align: left;
+	padding: 0 2.4em;
+}
 .ui blockquote > footer {
 	font-size: 1em;
 	font-weight: bold;
 	color: var(--focus);
 	font-style: italic;
 	text-align: right;
+	margin-top: 1em;
 }
 
 /* Liste */
@@ -700,6 +708,15 @@ html {
 	resize: vertical;
 	min-height: 4.5em;
 	padding: 0.5em;
+}
+.ui form input[type=file] {
+	font-size: 0.9em !important;
+	padding: 0.5em !important;
+}
+.ui form input[type=color] {
+	padding: 0.3em !important;
+	width: 3em !important;
+	height: 2em !important;
 }
 
 /* Case à cocher */
@@ -1030,10 +1047,49 @@ html {
 	background-color: var(--negative-lighter);
 	filter: opacity(3%);
 }
+.style.normal {
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+}
+.style.thin {
+	font-weight: lighter;
+	font-style: normal;
+	font-stretch: normal;
+}
+.style.bold {
+	font-weight: bold;
+}
+.style.italic {
+	font-style: italic;
+}
+.style.smalle {
+	font-size: smaller;
+}
+.style.large {
+	font-size: larger;
+}
+.style.title {
+	font-size: 2em;
+}
+.style.big {
+	font-size: 3em;
+}
+.style.primary {
+	color: var(--primary-lighter);
+}
+.style.positive {
+	color: var(--positive-lighter);
+}
+.style.negative {
+	color: var(--negative-lighter);
+}
+.style.gk {
+	color: var(--gk);
+}
 
 /* ligne marquée ou non pour formulaire */
-.ui .form-row,
-.ui .marked-form-row {
+.ui .form-row {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
@@ -1041,7 +1097,11 @@ html {
 	padding: 0.5em;
 	background-color: inherit;
 	border-radius: var(--border-radius);
+	gap: 1em;
 }
-.ui .marked-form-row:hover {
+.ui .form-row > .textarea-box {
+	width: 100%;
+}
+.ui .form-row.marked:hover {
 	background-color: var(--very-lighter);
 }
