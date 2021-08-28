@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>GraphKelly 1</title>
+		<meta name="description" content="Feuille de style CSS - GraphKelly v1.0" />
+		<meta name="application-name" content="GraphKelly" />
+        <meta name="author" content="Christophe LEMOINE" />
+        <meta name="generator" content="Atom 1.58.0 x64" />
+
+        <link rel="icon" href="graphkelly.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="graphkelly144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="graphkelly144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="graphkelly96.png" />
+        <link rel="apple-touch-icon-precomposed" href="graphkelly96.png" />
+        <link rel="icon" type="image/png" href="graphkelly32.png" />
+        <link rel="shortcut icon" type="image/png" href="graphkelly32.png" />
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+		<link rel="stylesheet" href="style.css" type="text/css" />
+
+		<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body class="ui" style="padding: 1em;">
+
+		<button class="primary" tabindex="0">Click me - primary</button>
+		<button tabindex="0">Click me - normal</button>
+		<button class="positive" tabindex="0">Click me - positive</button>
+		<button class="negative" tabindex="0">Click me - negative</button>
+		<button class="boxed" tabindex="0">Click me - boxed</button>
+		<button class="positive" tabindex="0" disabled>Click me - disabled</button>
+
+		<p>&nbsp;</p>
+
+		<div class="toolbar right">
+			<div class="buttons">
+				<input class="toggle" id="toggle1" type="checkbox" /><label class="toggle boxed" for="toggle1"><i class="fas fa-code"></i></label>
+				<button class="boxed" tabindex="0"><i class="far fa-copy"></i></button>
+				<button class="boxed" tabindex="0" data-tooltip="essai p"><i class="fas fa-cut"></i></button>
+				<button class="boxed" tabindex="0" disabled><i class="far fa-clipboard"></i></button>
+				<button class="boxed" tabindex="0"><i class="far fa-trash-alt"></i></button>
+				<input class="toggle" id="option1" type="radio" name="optiongroup" checked /><label class="toggle boxed" for="option1"><i class="fas fa-align-left"></i></label>
+				<input class="toggle" id="option2" type="radio" name="optiongroup" /><label class="toggle boxed" for="option2"><i class="fas fa-align-center"></i></label>
+				<input class="toggle" id="option3" type="radio" name="optiongroup" /><label class="toggle boxed" for="option3"><i class="fas fa-align-right"></i></label>
+				<input class="toggle" id="option4" type="radio" name="optiongroup" /><label class="toggle boxed" for="option4"><i class="fas fa-align-justify"></i></label>
+			</div>
+			<div class="buttons">
+				<button class="boxed" tabindex="0"><i class="far fa-file"></i> Nouveau</button>
+				<button class="boxed" tabindex="0"><i class="far fa-save"></i></button>
+			</div>
+		</div>
+
+		<p>&nbsp;</p>
+
+		<div>
+			<a href="./index.php">Accueil</a>&nbsp;
+			<a href="./index.php" disabled>Accueil</a>&nbsp;
+			<a href="./index.php" data-tooltip="essai a">Accueil</a>
+		</div>
+
+		<p>&nbsp;</p>
+
+		<div style="margin: auto; width: 50%">
+			<form action="#">
+				<fieldset>
+					<legend>Fieldset</legend>
+					<div class="form-row">
+						<label class="float" for="name">
+							<i class="fas fa-user-friends icon"></i>
+							<div class="legend"><i class="fas fa-search"></i></div>
+				            <input type="text" id="name" placeholder="Name" autocomplete="off" autofill="off" required>
+				            <span>Nom de famille</span>
+							<small>Votre nom de famille est requis</small>
+				        </label>
+					</div>
+					<div class="form-row">
+				        <label class="float" for="email">
+				            <input type="email" id="email" placeholder="Email" disabled>
+				            <span>Email</span>
+							<small>Adresse email valide</small>
+				        </label>
+					</div>
+					<div class="form-row">
+				        <label class="float" for="phone" data-tooltip-positive="Mon textarea">
+				            <input type="tel" id="phone" placeholder="Phone" required>
+				            <span>Phone</span>
+				        </label>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>Fieldset 2</legend>
+					<div class="form-row">
+						<div data-tooltip="Mon textarea">
+							<textarea id="txta" name="txta" placeholder=" "></textarea>
+							<label for="txta">txta</label>
+						</div>
+
+						<div>
+							<textarea id="txta" name="txta" placeholder=" " disabled></textarea>
+							<label for="txta">txta</label>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>Fieldset 2</legend>
+					<div class="marked-form-row">
+						<div>Param 1</div>
+						<div>
+			        		<input type="checkbox" id="chk1" />
+							<label for="chk1"></label>
+						</div>
+					</div>
+					<div class="marked-form-row">
+						<div>Param 2</div>
+						<div>
+			        		<input type="checkbox" id="chk2" disabled />
+							<label for="chk2"></label>
+						</div>
+					</div>
+					<div class="marked-form-row">
+						<div>Param 3 (obligatoire)</div>
+						<div>
+			        		<input type="checkbox" id="chk3" required />
+							<label for="chk3" data-tooltip-negative="cool le tooltip"></label>
+						</div>
+					</div>
+					<div class="marked-form-row">
+						<div>Param 4</div>
+						<div>
+			        		<input type="checkbox" id="chk4" checked />
+							<label for="chk4"></label>
+						</div>
+					</div>
+				</fieldset>
+
+				<div class="toolbar right">
+					<div class="buttons">
+						<button class="boxed" tabindex="1" onclick="reset()" data-tooltip-primary="Mon textarea">Annuler</button>
+						<button class="primary" tabindex="0" onclick="submit()">Valider</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+		<p data-tooltip="essai p">
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
+			Lorem Ipsum has been <mark data-tooltip="Je suis un marqueur" data-aria-before="début du marquage" data-aria-after="fin du marquage">the industry's</mark> <a href="./index.php">Accueil</a> standard dummy text ever since <a href="https://pantaflex44.me" target="_blank">PF44</a> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br />
+			It has survived not <a href="mailto:pantaflex@hotmail.fr">Envoyer un message</a> only five centuries, <q>but also the leap into electronic <a href="https://www.google.fr">Google</a> typesetting, remaining essentially unchanged.</q> It was popularised in the 1960s with the release of Letraset <a href="mailto:pantaflex@hotmail.fr" disabled>pantaflex@hotmail.fr</a> sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+
+		<ul class="style boxed">
+			<li>Premier élément
+				<ul>
+					<li>DSsdsfds</li>
+					<li>qsd 42qsd qs<br />
+						sqdqd sqd sdq sqdsqd qsqd<br />
+						dsqdq; dsf
+					</li>
+				</ul>
+			</li>
+			<li>Deuxième</li>
+			<li>Dernier bob</li>
+		</ul>
+		<ul class="style filled primary">
+			<li>Premier élément
+				<ul>
+					<li>DSsdsfds</li>
+					<li>qsd 42qsd qs</li>
+				</ul>
+			</li>
+			<li>Deuxième</li>
+			<li>Dernier bob</li>
+		</ul>
+		<ul class="style boxed positive">
+			<li>Premier élément
+				<ul>
+					<li>DSsdsfds</li>
+					<li>qsd 42qsd qs</li>
+				</ul>
+			</li>
+			<li>Deuxième</li>
+			<li>Dernier bob</li>
+		</ul>
+		<ul class="items style filled negative">
+			<li>Premier élément
+				<ul>
+					<li>DSsdsfds</li>
+					<li>Dqsd 42qsd qs</li>
+				</ul>
+			</li>
+			<li>Deuxième</li>
+			<li>Dernier bob</li>
+		</ul>
+
+		<ol>
+			<li>Premier élément
+				<ul>
+					<li>DSsdsfds
+						<ul>
+							<li>DSsdsfds<br />
+							sqdsdq<br />
+							qsdsq</li>
+							<li>Dsd 42qsd qs</li>
+						</ul>
+					</li>
+					<li>Dsd 42qsd qs</li>
+				</ul>
+			</li>
+			<li>Deuxième<br />sqsqqdqs qs  qsd fqssf qs <br />sqdsfd ds qs  sqdsq qssqd</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Deuxième</li>
+			<li>Dernier bob</li>
+		</ol>
+
+		<hr />
+		<h1>Titre h1</h1>
+		<p class="center">
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+		<p class="justify">
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+		<p class="right">
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<h2>Titre h2</h2>
+		<p>
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+		<p class="left">
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<h3>Titre h3</h3>
+		<p>
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<h4>Titre h4</h4>
+		<p>
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<h5>Titre h5</h5>
+		<p>
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<h6>Titre h6</h6>
+		<p>
+			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+		</p>
+
+		<hr />
+
+		<p>
+			<blockquote>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+				<footer>Source: Lorem Ipsum</footer>
+			</blockquote>
+		</p>
+		<p>
+			<figure>
+				<blockquote>
+					Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+				</blockquote>
+				<figcaption>Source: Lorem Ipsum</figcaption>
+			</figure>
+		</p>
+		<hr />
+
+		<p>&nbsp;</p>
+		<img src="./graphkelly144.png" title="GraphKelly 1 - OpenSource CSS stylesheet by Christophe LEMOINE (pantaflex/44 <pantaflex@tuta.io>)" style="display: block; margin: 0 auto;" />
+
+	</body>
+</html>

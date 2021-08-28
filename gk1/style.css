@@ -1,0 +1,1047 @@
+@import 'normalize.css';
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/opensans/v23/mem8YaGs126MiZpBA-UFVZ0b.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKfw72.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Domine';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url(https://fonts.gstatic.com/s/domine/v11/L0xhDFMnlVwD4h3Lt9JWnbX3jG-2X3LAE1ofEw.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+	--very-lighter: #F7F7F7;
+    --lighter: #E2E7EA;
+    --light: #ccc;
+    --focus: #aaa;
+    --dark: #666;
+    --darker: #111;
+
+    --primary-lighter: #09816c;
+    --primary-light: #4fbe9f;
+    --primary-focus: #099f84;
+    --primary-dark: #FBFBFB;
+    --primary-darker: #FFFFFF;
+
+    --positive-lighter: #00BB13;
+    --positive-light: #00A110;
+    --positive-focus: #006E0B;
+    --positive-dark: #FBFBFB;
+    --positive-darker: #FFFFFF;
+
+    --negative-lighter: #BB0900;
+    --negative-light: #A10800;
+    --negative-focus: #6E0600;
+    --negative-dark: #FBFBFB;
+    --negative-darker: #FFFFFF;
+
+    --black: #111;
+    --white: #FCFCFC;
+	--true-white: #FFF;
+
+	--border-radius: 5px;
+	--line-height: 1.25;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    /*transition: .1s;*/
+}
+
+/* Tous les éléments du thème */
+* {
+	font-family: 'Ubuntu', 'Open Sans', sans-serif;
+}
+
+html {
+	line-height: 1.15;
+}
+
+.ui *:focus {
+    outline: none;
+}
+.ui *:disabled,
+.ui *[disabled],
+.ui *:hover:disabled,
+.ui *:focus:disabled,
+.ui *:active:disabled {
+	color: currentColor;
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+
+/* Tooltip */
+@keyframes tooltip-slide {
+    100% { left: 0; }
+}
+.ui [data-tooltip]:hover,
+.ui [data-tooltip-primary]:hover,
+.ui [data-tooltip-positive]:hover,
+.ui [data-tooltip-negative]:hover {
+	position: relative;
+	overflow: visible;
+}
+.ui [data-tooltip]:hover::before,
+.ui [data-tooltip-primary]:hover::before,
+.ui [data-tooltip-positive]:hover::before,
+.ui [data-tooltip-negative]:hover::before {
+	all: initial;
+	display: inline-block;
+	border-radius: var(--border-radius);
+	padding: 0.5em 0.7em;
+	color: var(--white);
+	position: absolute;
+	bottom: 100%;
+	width: auto;
+	white-space: nowrap;
+	left: -8000px;
+    animation: tooltip-slide 0s forwards;
+    animation-delay: 0.5s;
+	margin-bottom: 0.5em;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	opacity: 0.9;
+	z-index: 1000;
+	background-color: var(--darker);
+	content: attr(data-tooltip);
+}
+.ui [data-tooltip-primary]:hover::before {
+	background-color: var(--primary-lighter);
+	content: attr(data-tooltip-primary);
+}
+.ui [data-tooltip-positive]:hover::before {
+	background-color: var(--positive-lighter);
+	content: attr(data-tooltip-positive);
+}
+.ui [data-tooltip-negative]:hover::before {
+	background-color: var(--negative-lighter);
+	content: attr(data-tooltip-negative);
+}
+
+/* Corps de la page */
+.ui {
+	font-size: 1.0em;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--black);
+	background-color: var(--white);
+}
+
+/* Suppression de la couleur de fond lors de l'auto completion sous Chrome */
+.ui input:-webkit-autofill,
+.ui input:-webkit-autofill:hover,
+.ui input:-webkit-autofill:focus,
+.ui input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Lien */
+.ui a,
+.ui a:link,
+.ui a:visited {
+	display: inline-block;
+	background-color: inherit;
+	color: var(--primary-lighter);
+	text-decoration: none;
+}
+.ui a:visited {
+	border-style: dashed;
+}
+.ui a:hover {
+	color: var(--primary-focus);
+	text-decoration: none;
+}
+.ui a:active {
+	color: inherit;
+	text-decoration: none;
+}
+.ui a[disabled] {
+	color: var(--light);
+	border-color: currentColor;
+	border: 0;
+	text-decoration: none;
+	border: 0;
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+
+/* Titres */
+.ui h1 {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 0em;
+	color: var(--focus);
+}
+.ui h1:first-of-type {
+	padding-top: 0.3em;
+}
+.ui h2 {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 0em;
+	color: var(--primary-lighter);
+}
+.ui h3 {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 0em;
+	color: var(--dark);
+	border-bottom: 1px dotted var(--focus);
+}
+.ui h4,
+.ui h5,
+.ui h6 {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 0em;
+	color: var(--focus);
+	text-transform: uppercase;
+}
+.ui h1 + p,
+.ui h2 + p {
+	margin-top: 1em;
+}
+.ui h3 + p,
+.ui h4 + p,
+.ui h5 + p,
+.ui h6 + p {
+	margin-top: 0.7em;
+}
+
+/* Separateur */
+.ui hr {
+	border: 0;
+	border-top: 1px solid var(--focus);
+}
+
+/* Paragraphe */
+.ui p a[target='_blank' i]::after,
+.ui p a[href^='mailto:' i]::after,
+.ui p a[href^='http' i]::after,
+.ui p a[href^='ftp' i]::after,
+.ui p a[href^='sftp' i]::after  {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 0.6em;
+	vertical-align: middle;
+	display: inline-block;
+	padding-left: 0.3em;
+}
+.ui p a[target="_blank" i]::after {
+	content: "\f35d";
+}
+.ui p a[href^='mailto:' i]::after {
+	content: "\f0e0";
+}
+.ui p a[href^='http' i]:not([target='_blank' i])::after {
+	content: "\f7a2";
+}
+.ui p a[href^='ftp' i]::after,
+.ui p a[href^='sftp' i]::after {
+	content: "\f07b";
+}
+.ui p a {
+	margin: 0 0.3em;
+}
+.ui p a,
+.ui p a:link,
+.ui p a:visited {
+	color: var(--primary-lighter);
+	border-bottom: 1px dotted currentColor;
+}
+.ui p a:hover {
+	color: var(--primary-focus);
+	border-bottom-color: currentColor;
+}
+.ui p a:active {
+	color: inherit;
+	border-bottom-color: currentColor;
+}
+.ui p a[disabled] {
+	color: var(--dark);
+	border: 0;
+	text-decoration: line-through;
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+.ui p {
+	margin: 1em 0;
+	padding: 0;
+	line-height: var(--line-height);
+}
+.ui p.justify {
+	text-align: justify;
+	text-justify: inter-word;
+}
+.ui p.left {
+	text-align: left;
+	text-justify: inter-word;
+}
+.ui p.right {
+	text-align: right;
+	text-justify: inter-word;
+}
+.ui p.center {
+	text-align: center;
+	text-justify: inter-word;
+}
+
+/* Marqueur */
+.ui mark,
+.ui span[role="mark"] {
+	background-color: var(--primary-lighter);
+	color: var(--white);
+	padding: 0 0.5em;
+}
+.ui mark::before,
+.ui span[role="mark"]::before ,
+.ui mark::after,
+.ui span[role="mark"]::after {
+	clip-path: inset(100%);
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+.ui mark::before,
+.ui span[role="mark"]::before {
+	content: " [" attr(data-aria-before) "] ";
+}
+.ui mark::after,
+.ui span[role="mark"]::after {
+	content: " [" attr(data-aria-after) "] ";
+}
+
+/* Citation */
+.ui q {
+	font-family: 'Domine', serif;
+}
+.ui figure {
+	font-size: 1em;
+	margin: auto;
+	max-width: 70%;
+}
+.ui figure > blockquote ~ figure {
+	padding-left: 1em;
+}
+.ui blockquote {
+	position: relative;
+	margin: auto;
+	max-width: 70%;
+}
+.ui figure > blockquote {
+	max-width: 100%;
+	line-height: var(--line-height);
+}
+.ui blockquote::before {
+	content: "\f10d";
+	left: -0.2em;
+	top: -0.2em;
+	position: absolute;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 10vw;
+	color: var(--lighter);
+	z-index: -1000;
+}
+.ui figure > blockquote,
+.ui blockquote > p {
+	font-family: 'Domine';
+	font-size: 1.5em;
+	padding: 0;
+	padding-left: 0.5em;
+	margin: 0;
+	margin-bottom: 0.5em;
+	margin-top: 2em;
+	color: var(--dark);
+}
+.ui figure > blockquote + figcaption,
+.ui blockquote > footer {
+	font-size: 1em;
+	font-weight: bold;
+	color: var(--focus);
+	font-style: italic;
+	text-align: right;
+}
+
+/* Liste */
+.ui ul,
+.ui ol {
+	display: block;
+	margin: 0;
+	margin-left: 2em;
+	padding: 0;
+	padding-left: -1em;
+	list-style: none;
+	position: relative;
+	counter-reset: li;
+}
+.ui ul li,
+.ui ol li  {
+	vertical-align: middle;
+	padding: 0.2em 0;
+	counter-increment: li;
+	display: block;
+}
+.ui ul li > ul,
+.ui ol li > ul,
+.ui ul li > ol,
+.ui ol li > ol {
+	margin-left: 1em;
+	padding-top: 0.2em;
+	padding-bottom: 0.5em;
+}
+.ui ul li::before,
+.ui ol li::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 0.5em;
+	content: "\f152";
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 1em;
+	padding-bottom: 0.3em;
+	margin-left: -2em;
+	display: inline-block;
+	width: 2em;
+}
+.ui ol li::before {
+	font-family: inherit;
+	content: "." counters(li, ".");
+	font-size: 0.7em;
+	color: var(--focus);
+	padding-bottom: 0;
+	display: inline-block;
+	width: 2em;
+	text-align: right;
+	direction: rtl;
+}
+
+/* Formulaire */
+.ui form {
+	display: block;
+	width: 100%;
+}
+
+/* Groupe de formulaire */
+.ui fieldset {
+	border: 0;
+	margin: 0;
+	padding: 1em 0;
+}
+.ui fieldset legend {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+	color: var(--focus);
+	font-size: 2em;
+	font-weight: bold;
+}
+.ui fieldset ~ div {
+	margin: 0;
+	padding: 0;
+	height: auto;
+}
+
+/* Bouton */
+.ui button,
+.ui input[type=button],
+.ui input[type=reset],
+.ui input[type=submit],
+.ui label.toggle {
+	background-color: var(--lighter);
+	color: var(--darker);
+	min-height: 2.5em;
+	padding: 0.5em 1em;
+	border: 1px solid var(--lighter);
+	border-radius: var(--border-radius);
+	font-weight: normal;
+	position: relative;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+.ui button:hover,
+.ui input[type=button]:hover,
+.ui input[type=reset]:hover,
+.ui input[type=submit]:hover,
+.ui label.toggle:hover {
+	background-color: var(--light);
+	color: var(--true-white);
+}
+.ui button:focus,
+.ui input[type=button]:focus,
+.ui input[type=reset]:focus,
+.ui input[type=submit]:focus,
+.ui label.toggle:focus {
+	background-color: var(--light);
+	color: var(--true-white);
+}
+.ui button:active,
+.ui input[type=button]:active,
+.ui input[type=reset]:active,
+.ui input[type=submit]:active,
+.ui label.toggle:active {
+	background-color: var(--focus);
+	color: var(--true-white);
+}
+.ui button.boxed,
+.ui input[type=reset],
+.ui label.toggle.boxed {
+	background-color: var(--true-white);
+	color: var(--dark);
+	border-color: var(--lighter);
+	font-weight: normal;
+}
+.ui button.boxed:hover,
+.ui button.boxed:focus,
+.ui input[type=reset]:hover,
+.ui input[type=reset]:focus,
+.ui label.toggle.boxed:hover,
+.ui label.toggle.boxed:focus {
+	background-color: var(--true-white);
+	color: var(--black);
+	border-color: var(--light);
+}
+.ui button.boxed:hover,
+.ui label.toggle.boxed:hover {
+	background-color: var(--true-white);
+}
+.ui button.boxed:active,
+.ui input[type=reset]:active,
+.ui label.toggle.boxed:active {
+	background-color: var(--very-lighter);
+	border-color: var(--dark);
+}
+.ui button.positive,
+.ui label.toggle.positive {
+	background-color: var(--positive-lighter);
+	color: var(--positive-dark);
+	border-color: var(--positive-light);
+}
+.ui button.positive:hover,
+.ui label.toggle.positive:hover {
+	background-color: var(--positive-light);
+	color: var(--positive-darker);
+	border-color: var(--positive-light);
+}
+.ui button.positive:focus,
+.ui label.toggle.positive:focus {
+	background-color: var(--positive-light);
+	color: var(--positive-dark);
+	border-color: var(--positive-light);
+}
+.ui button.positive:active,
+.ui label.toggle.positive:active {
+	background-color: var(--positive-focus);
+	color: var(--positive-darker);
+	border-color: var(--positive-focus);
+}
+.ui button.negative,
+.ui label.toggle.negative {
+	background-color: var(--negative-lighter);
+	color: var(--negative-dark);
+	border-color: var(--negative-light);
+}
+.ui button.negative:hover,
+.ui label.toggle.negative:hover {
+	background-color: var(--negative-light);
+	color: var(--negative-darker);
+	border-color: var(--negative-light);
+}
+.ui button.negative:focus,
+.ui label.toggle.negative:focus {
+	background-color: var(--negative-light);
+	color: var(--negative-dark);
+	border-color: var(--negative-light);
+}
+.ui button.negative:active,
+.ui label.toggle.negative:active {
+	background-color: var(--negative-focus);
+	color: var(--negative-darker);
+	border-color: var(--negative-focus);
+}
+.ui button.primary,
+.ui input[type=submit],
+.ui label.toggle.primary {
+	background-color: var(--primary-lighter) !important;
+	color: var(--primary-dark) !important;
+	border-color: var(--primary-light) !important;
+}
+.ui button.primary:hover,
+.ui input[type=submit]:hover,
+.ui label.toggle.primary:hover {
+	background-color: var(--primary-focus) !important;
+	color: var(--primary-darker) !important;
+	border-color: var(--primary-focus) !important;
+}
+.ui button.primary:focus,
+.ui input[type=submit]:focus,
+.ui label.toggle.primary:focus {
+	background-color: var(--primary-focus) !important;
+	color: var(--primary-dark) !important;
+	border-color: var(--primary-focus) !important;
+}
+.ui button.primary:active,
+.ui input[type=submit]:active,
+.ui label.toggle.primary:active {
+	background-color: var(--primary-light) !important;
+	color: var(--primary-darker) !important;
+	border-color: var(--primary-light) !important;
+}
+.ui button[disabled],
+.ui input[type=button][disabled],
+.ui input[type=reset][disabled],
+.ui input[type=submit][disabled],
+.ui input[disabled],
+.ui label.toggle[disabled],
+.ui label.toggle.boxed[disabled],
+.ui label.toggle.primary[disabled],
+.ui label.toggle.positive[disabled],
+.ui label.toggle.negative[disabled] {
+	background-color: var(--white);
+	color: var(--light);
+	border-color: var(--lighter);
+	font-weight: normal;
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+
+/* Entrées d'un formulaire */
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):required + label,
+.ui form textarea:required + label {
+	color: var(--primary-lighter);
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus:invalid + label,
+.ui form textarea:focus:invalid + label {
+	color: var(--negative-lighter);
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus:invalid,
+.ui form textarea:focus:invalid {
+	border-color: var(--negative-lighter);
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]),
+.ui form textarea {
+    outline: none;
+	height: 39px;
+	background-color: var(--true-white);
+	color: var(--dark);
+	width: 100%;
+	padding: 0 0.5em;
+	border: 1px solid var(--lighter);
+	border-bottom-color: var(--focus);
+	border-radius: var(--border-radius);
+	font-weight: normal;
+	font-size: 1em;
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button])[disabled],
+.ui form textarea[disabled],
+.ui form textarea[disabled]:hover,
+.ui form textarea[disabled]:focus,
+.ui form textarea[disabled]:active {
+	background-color: var(--white);
+	border: 1px solid var(--lighter);
+	color: var(--focus);
+	cursor: not-allowed !important;
+	pointer-events: none;
+	resize: none;
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button])[disabled] + label,
+.ui form textarea[disabled] + label,
+.ui form textarea[disabled]:hover + label,
+.ui form textarea[disabled]:focus + label,
+.ui form textarea[disabled]:active + label {
+	color: var(--focus);
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):hover,
+.ui form textarea:hover {
+	color: var(--black);
+	border-color: var(--focus);
+	border-bottom-color: var(--dark);
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus,
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):active,
+.ui form textarea:focus,
+.ui form textarea:active {
+	background-color: var(--true-white);
+	color: var(--black);
+	border-color: var(--dark);
+}
+.ui form input:not([type=checkbox]):not([type=radio]):not([type=button])::placeholder,
+.ui form textarea::placeholder {
+	color: var(--focus);
+	font-size: 0.8em;
+	opacity: 1;
+}
+.ui form textarea {
+	resize: vertical;
+	min-height: 4.5em;
+	padding: 0.5em;
+}
+
+/* Case à cocher */
+.ui form input[type=checkbox],
+.ui form input[type=radio] {
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+}
+.ui form input[type=checkbox] + label,
+.ui form input[type=radio] + label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 2.5em;
+	height: 1.45em;
+	background-color: var(--focus);
+	display: block;
+	border-radius: 1em;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+.ui form input[type=checkbox]:required:not(:checked) + label,
+.ui form input[type=radio]:required:not(:checked) + label {
+	background-color: var(--negative-lighter);
+}
+.ui form input[type=checkbox][disabled] + label,
+.ui form input[type=radio][disabled] + label {
+	background-color: var(--lighter);
+}
+.ui form input[type=checkbox] + label::after,
+.ui form input[type=radio] + label::after {
+	content: '';
+	position: absolute;
+	top: 0.20em;
+	left: 0.20em;
+	width: 1.05em;
+	height: 1.05em;
+	background-color: var(--white);
+	border-radius: 1em;
+}
+.ui form input[type=checkbox]:checked:not(:disabled):not([disabled]) + label,
+.ui form input[type=radio]:checked:not(:disabled):not([disabled]) + label {
+	background-color: var(--primary-lighter);
+}
+.ui form input[type=checkbox]:checked + label::after,
+.ui form input[type=radio]:checked + label::after {
+	left: calc(100% - 0.20em);
+	transform: translateX(-100%);
+}
+.ui form input[type=checkbox] + label:active::after,
+.ui form input[type=radio] + label:active::after {
+	width: 1.4em;
+}
+
+/* Entrées flotantes */
+.ui form label {
+	display: block;
+	padding: 0;
+	margin: 0;
+	margin-top: 0.3em;
+	margin-bottom: 1.5em;
+    position: relative;
+	color: var(--dark);
+	font-size: 0.9em;
+	clear: both;
+	width: 100%;
+}
+.ui form label.float {
+	margin-top: 0em;
+	margin-bottom: 0.5em;
+	height: 4.5em;
+	font-size: 1em;
+	color: var(--primary-lighter);
+}
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button]) {
+	top: 0;
+	position: absolute;
+}
+.ui form label:hover > .ui input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]),
+.ui form label:focus-within > .ui input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]) {
+	background-color: var(--white);
+	color: var(--black);
+	border-color: var(--focus);
+	border-bottom-color: var(--dark);
+}
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button])::placeholder {
+    opacity: 0;
+}
+.ui form label > span {
+    position: absolute;
+    top: 0.75em;
+    left: 0.5em;
+    transform: translateY(0em);
+	color: var(--dark);
+	cursor: text;
+	font-size: 1em;
+}
+.ui form label > small {
+	display: block;
+	position: absolute;
+	bottom: 1em;
+	left: 0em;
+	color: var(--focus);
+	vertical-align: middle;
+	cursor: text;
+}
+.ui form label > .icon {
+	position: absolute;
+	z-index: 500;
+	left: 0.5em;
+	top: 0.75em;
+	width: 1em;
+	height: 1em;
+	color: var(--light);
+}
+.ui form label > div.legend {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.5em;
+	font-size: 0.8em;
+	padding: 0 1em;
+	position: absolute;
+	z-index: 500;
+	right: 1px;
+	top: 1px;
+	width: auto;
+	height: 37px;
+	color: var(--dark);
+	background-color: var(--lighter);
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+.ui form label > .icon ~ span {
+	padding-left: 2em;
+}
+.ui form label > .icon ~ input:not([type=checkbox]):not([type=radio]):not([type=button]) {
+	padding-left: 2.5em;
+}
+.ui form label:focus-within > span,
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:placeholder-shown) ~ span {
+    transform: translateY(2.3em);
+	padding-left: 0;
+	cursor: default;
+	font-size: 0.9em;
+	left: 0;
+}
+.ui form label:focus-within > input:not([type=checkbox]):not([type=radio]):not([type=button]):invalid ~ span {
+    color: var(--negative-lighter);
+}
+.ui form label:focus-within > input:not([type=checkbox]):not([type=radio]):not([type=button]):invalid {
+	border-color: var(--negative-lighter);
+}
+.ui form label:focus-within > small,
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:placeholder-shown) ~ small {
+	opacity: 0;
+}
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button]):required ~ span {
+	color: var(--primary-lighter);
+}
+.ui form label > input:not([type=checkbox]):not([type=radio]):not([type=button])[disabled] ~ span {
+    color: var(--focus);
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+
+/* Groupement de boutons en barre */
+.ui div.buttons button,
+.ui div.buttons label.toggle {
+	display: block;
+	margin: 0;
+	border-radius: 0;
+	border: 0;
+	border-top: 1px solid var(--lighter);
+	border-bottom: 1px solid var(--lighter);
+	border-left: 1px solid var(--lighter);
+	font-weight: normal;
+	position: relative;
+	vertical-align: middle;
+	min-width: 2.5em;
+	height: 2em;
+}
+.ui div.buttons label.toggle {
+	min-height: 2.5em;
+	font-size: 0.9em;
+	/*padding: calc(0.5em + 1px) 1em;*/
+}
+.ui div.buttons label.toggle[disabled] {
+	background-color: var(--white);
+	color: var(--light);
+	border-color: var(--lighter);
+	font-weight: normal;
+	cursor: not-allowed !important;
+	pointer-events: none;
+}
+.ui div.buttons label.toggle * {
+	margin: auto;
+	vertical-align: middle;
+}
+.ui div.buttons input[type="checkbox"].toggle,
+.ui div.buttons input[type="radio"].toggle {
+	position: absolute;
+	left: -99999px;
+}
+.ui div.buttons input[type="checkbox"].toggle:checked + label.toggle,
+.ui div.buttons input[type="radio"].toggle:checked + label.toggle {
+	background-color: var(--focus);
+	color: var(--white);
+	border-top-color: var(--focus);
+	border-bottom-color: var(--focus);
+}
+.ui div.buttons button:first-child,
+.ui div.buttons label.toggle:first-child,
+.ui div.buttons input:first-child + label.toggle {
+	border-top-left-radius: var(--border-radius);
+	border-bottom-left-radius: var(--border-radius);
+}
+.ui div.buttons button:last-child,
+.ui div.buttons label.toggle:last-child {
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	border-right: 1px solid var(--lighter);
+}
+.ui div.buttons button:hover,
+.ui div.buttons label.toggle:hover {
+	background-color: var(--true-white);
+	border-top: 1px solid var(--light);
+	border-bottom: 1px solid var(--light);
+	border-left: 1px solid var(--lighter);
+}
+.ui div.buttons button:active,
+.ui div.buttons label.toggle:active {
+	border-top-color: var(--dark);
+	border-bottom-color: var(--dark);
+	border-left: 1px solid var(--lighter);
+	background-color: var(--very-lighter);
+}
+.ui div.buttons {
+	margin: 0;
+	display: inline-flex;
+	flex-flow: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0;
+	border-radius: var(--border-radius);
+	width: auto;
+}
+
+/* Barre à outils */
+.ui div.toolbar.left {
+	justify-content: flex-start;
+}
+.ui div.toolbar.center {
+	justify-content: center;
+}
+.ui div.toolbar.right {
+	justify-content: flex-end;
+}
+.ui div.toolbar {
+	margin: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5em;
+	flex-basis: 100%;
+	width: 100%;
+}
+
+/* Styles */
+.style.boxed,
+.style.filled {
+	display: inline-block;
+	width: auto;
+	background-color: inherit;
+	color: inherit;
+	background-color: var(--true-white);
+	border: 1px solid var(--lighter);
+	border-radius: var(--border-radius);
+	padding: 0.7em 1em;
+	padding-left: 1.9em;
+	margin: 0;
+	position: relative;
+	vertical-align: top;
+}
+.style.boxed.primary {
+	border-color: var(--primary-lighter);
+}
+.style.filled.primary::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--primary-lighter);
+	filter: opacity(3%);
+}
+.style.boxed.positive {
+	border-color: var(--positive-lighter);
+}
+.style.filled.positive::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--positive-lighter);
+	filter: opacity(3%);
+}
+.style.boxed.negative {
+	border-color: var(--negative-lighter);
+}
+.style.filled.negative::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--negative-lighter);
+	filter: opacity(3%);
+}
+
+/* ligne marquée ou non pour formulaire */
+.ui .form-row,
+.ui .marked-form-row {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5em;
+	background-color: inherit;
+	border-radius: var(--border-radius);
+}
+.ui .marked-form-row:hover {
+	background-color: var(--very-lighter);
+}
