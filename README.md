@@ -29,3 +29,9 @@ Christophe LEMOINE, [pantaflex@tuta.io](mailto:%20pantaflex@tuta.io?subject=Grap
 GraphKelly est sous Licence GNU/GPL v3.
 
 [Guide rapide](https://www.gnu.org/licenses/quick-guide-gplv3.fr.html) | [Licence](https://www.gnu.org/licenses/gpl-3.0.fr.html)
+
+
+
+## Capture d'écran
+
+![Capture d'écran](https://github.com/pantaflex44/GraphKelly/blob/main/screenshot.png)
