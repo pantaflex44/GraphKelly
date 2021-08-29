@@ -56,7 +56,7 @@
 				<button class="primary" tabindex="0">primary</button>
 				<button tabindex="0">normal</button>
 				<button class="positive" tabindex="0">positive</button>
-				<button class="negative" tabindex="0">negative</button>
+				<button class="negative" tabindex="0">negative <div class="spinner invert"></div></button>
 				<button class="boxed" tabindex="0">boxed</button>
 				<button class="positive" tabindex="0" disabled>disabled</button>
 			</fieldset>
@@ -76,7 +76,7 @@
 						<input class="toggle" id="option4" type="radio" name="optiongroup" /><label class="toggle boxed" for="option4"><i class="fas fa-align-justify"></i></label>
 					</div>
 					<div class="buttons">
-						<button class="boxed" tabindex="0"><i class="far fa-file"></i> Nouveau</button>
+						<button class="boxed" tabindex="0"><i class="far fa-file"></i> Nouveau <div class="spinner"></div></button>
 						<button class="boxed" tabindex="0"><i class="far fa-save"></i></button>
 					</div>
 				</div>
@@ -88,6 +88,22 @@
 					<a href="./index.php">Accueil</a>&nbsp;
 					<a href="./index.php" disabled>Accueil</a>&nbsp;
 					<a href="./index.php" data-tooltip="essai a">Accueil</a>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Spinners</legend>
+				<div style="display: flex; flex-flow: row; gap: 2em;">
+					<div class="spinner small"></div>
+					<div class="spinner"></div>
+					<div class="spinner gk"></div>
+					<div class="spinner negative"></div>
+					<div class="spinner positive"></div>
+					<div class="spinner invert" style="background: #ccc;"></div>
+					<div class="spinner large"></div>
+					<div class="spinner large primary"></div>
+					<div class="spinner big"></div>
+					<div class="spinner gk" style="width: 4em; height: 4em;"></div>
 				</div>
 			</fieldset>
 
@@ -112,7 +128,7 @@
 				        </label>
 						<label class="float" for="forname">
 							<i class="fas fa-user-friends icon"></i>
-							<!--<div class="legend"><i class="fas fa-search"></i></div>-->
+							<div class="legend"><div class="spinner"></div></i></div>
 				            <input type="text" id="forname" placeholder="Prénom" autocomplete="off" autofill="off">
 				            <span>Prénom</span>
 				        </label>

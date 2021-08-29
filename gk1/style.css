@@ -489,6 +489,11 @@ html {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	cursor: pointer;
+	display: inline-flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5em;
 }
 .ui button:hover,
 .ui input[type=button]:hover,
@@ -892,7 +897,6 @@ html {
 /* Groupement de boutons en barre */
 .ui div.buttons button,
 .ui div.buttons label.toggle {
-	display: block;
 	margin: 0;
 	border-radius: 0;
 	border: 0;
@@ -906,6 +910,7 @@ html {
 	height: 2em;
 }
 .ui div.buttons label.toggle {
+	display: block;
 	min-height: 2.5em;
 	font-size: 0.9em;
 	/*padding: calc(0.5em + 1px) 1em;*/
@@ -1104,4 +1109,62 @@ html {
 }
 .ui .form-row.marked:hover {
 	background-color: var(--very-lighter);
+}
+
+/* Spinner */
+@keyframes spinner-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.ui div.spinner {
+	display: inline-block;
+	width: 1.2em;
+	height: 1.2em;
+}
+.ui div.spinner:after {
+	vertical-align: middle;
+	content: ' ';
+	display: block;
+	width: inherit;
+	height: inherit;
+	border-radius: 50%;
+	border: 3px solid var(--dark);
+	border-color: var(--dark) transparent var(--dark) transparent;
+	animation: spinner-anim 1.2s linear infinite;
+}
+.ui div.spinner.small {
+	width: 0.8em;
+	height: 0.8em;
+}
+.ui div.spinner.large {
+	width: 1.7em;
+	height: 1.7em;
+}
+.ui div.spinner.big {
+	width: 2.4em;
+	height: 2.4em;
+}
+.ui div.spinner.gk:after {
+	border: 3px solid var(--gk);
+    border-color: var(--gk) transparent var(--gk) transparent;
+}
+.ui div.spinner.primary:after {
+	border: 3px solid var(--primary-lighter);
+    border-color: var(--primary-lighter) transparent var(--primary-lighter) transparent;
+}
+.ui div.spinner.positive:after {
+	border: 3px solid var(--positive-lighter);
+    border-color: var(--positive-lighter) transparent var(--positive-lighter) transparent;
+}
+.ui div.spinner.negative:after {
+	border: 3px solid var(--negative-lighter);
+    border-color: var(--negative-lighter) transparent var(--negative-lighter) transparent;
+}
+.ui div.spinner.invert:after {
+	border: 3px solid var(--true-white);
+    border-color: var(--true-white) transparent var(--true-white) transparent;
 }

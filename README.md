@@ -1,6 +1,6 @@
 # GraphKelly
 
-![GraphKelly](https://github.com/pantaflex44/GraphKelly/blob/main/graphkelly.png)
+![GraphKelly](https://github.com/pantaflex44/GraphKelly/blob/main/graphkelly256.png)
 [GraphKelly (github)](https://github.com/pantaflex44/GraphKelly)
 
 ***Description***
