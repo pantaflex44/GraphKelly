@@ -34,4 +34,4 @@ GraphKelly est sous Licence GNU/GPL v3.
 
 ## Capture d'écran
 
-<!-- ![Capture d'écran](https://github.com/pantaflex44/GraphKelly/blob/main/screenshot.png) -->
+![Capture d'écran](https://github.com/pantaflex44/GraphKelly/blob/main/screenshot.png)

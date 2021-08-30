@@ -75,6 +75,16 @@ html {
 	line-height: 1.15;
 }
 
+/* Corps de la page */
+.ui {
+	font-size: 1.0em;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--black);
+	background-color: var(--white);
+	overflow: auto;
+}
+
 .ui *:focus {
     outline: none;
 }
@@ -135,15 +145,6 @@ html {
 .ui [data-tooltip-negative]:hover::before {
 	background-color: var(--negative-lighter);
 	content: attr(data-tooltip-negative);
-}
-
-/* Corps de la page */
-.ui {
-	font-size: 1.0em;
-	font-weight: normal;
-	font-style: normal;
-	color: var(--black);
-	background-color: var(--white);
 }
 
 /* Suppression de la couleur de fond lors de l'auto completion sous Chrome */
@@ -643,24 +644,29 @@ html {
 
 /* Entrées d'un formulaire */
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):required + label,
-.ui form textarea:required + label {
+.ui form textarea:required + label,
+.ui form select:required + label {
 	color: var(--primary-lighter);
 }
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus:invalid + label,
-.ui form textarea:focus:invalid + label {
+.ui form textarea:focus:invalid + label,
+.ui form select:focus:invalid + label {
 	color: var(--negative-lighter);
 }
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus:invalid,
-.ui form textarea:focus:invalid {
+.ui form textarea:focus:invalid,
+.ui form select:focus:invalid {
 	border-color: var(--negative-lighter);
 }
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]),
-.ui form textarea {
+.ui form textarea,
+.ui form select {
     outline: none;
 	height: 39px;
 	background-color: var(--true-white);
 	color: var(--dark);
 	width: 100%;
+	min-width: 8em;
 	padding: 0 0.5em;
 	border: 1px solid var(--lighter);
 	border-bottom-color: var(--focus);
@@ -672,7 +678,8 @@ html {
 .ui form textarea[disabled],
 .ui form textarea[disabled]:hover,
 .ui form textarea[disabled]:focus,
-.ui form textarea[disabled]:active {
+.ui form textarea[disabled]:active,
+.ui form select[disabled] {
 	background-color: var(--white);
 	border: 1px solid var(--lighter);
 	color: var(--focus);
@@ -684,13 +691,15 @@ html {
 .ui form textarea[disabled] + label,
 .ui form textarea[disabled]:hover + label,
 .ui form textarea[disabled]:focus + label,
-.ui form textarea[disabled]:active + label {
+.ui form textarea[disabled]:active + label,
+.ui form select[disabled] + label {
 	color: var(--focus);
 	cursor: not-allowed !important;
 	pointer-events: none;
 }
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):hover,
-.ui form textarea:hover {
+.ui form textarea:hover,
+.ui form select:hover {
 	color: var(--black);
 	border-color: var(--focus);
 	border-bottom-color: var(--dark);
@@ -698,13 +707,16 @@ html {
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):focus,
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button]):not(:disabled):not([disabled]):active,
 .ui form textarea:focus,
-.ui form textarea:active {
+.ui form textarea:active,
+.ui form select:active,
+.ui form select:focus {
 	background-color: var(--true-white);
 	color: var(--black);
 	border-color: var(--dark);
 }
 .ui form input:not([type=checkbox]):not([type=radio]):not([type=button])::placeholder,
-.ui form textarea::placeholder {
+.ui form textarea::placeholder,
+.ui form select:placeholder {
 	color: var(--focus);
 	font-size: 0.8em;
 	opacity: 1;
@@ -823,6 +835,10 @@ html {
 	color: var(--dark);
 	cursor: text;
 	font-size: 1em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: calc(100% - 0.75em - 0.75em);
 }
 .ui form label > small {
 	display: block;
@@ -832,6 +848,10 @@ html {
 	color: var(--focus);
 	vertical-align: middle;
 	cursor: text;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 8em;
 }
 .ui form label > .icon {
 	position: absolute;
@@ -863,6 +883,7 @@ html {
 }
 .ui form label > .icon ~ span {
 	padding-left: 2em;
+	max-width: calc(100% - 2.1em - 0.75em);
 }
 .ui form label > .icon ~ input:not([type=checkbox]):not([type=radio]):not([type=button]) {
 	padding-left: 2.5em;
@@ -1104,7 +1125,7 @@ html {
 	border-radius: var(--border-radius);
 	gap: 1em;
 }
-.ui .form-row > .textarea-box {
+.ui .form-row > .box {
 	width: 100%;
 }
 .ui .form-row.marked:hover {
@@ -1167,4 +1188,10 @@ html {
 .ui div.spinner.invert:after {
 	border: 3px solid var(--true-white);
     border-color: var(--true-white) transparent var(--true-white) transparent;
+}
+
+@media screen and (max-width: 376px) {
+	.ui form label > div.legend {
+		display: none;
+	}
 }

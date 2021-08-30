@@ -27,13 +27,13 @@
 	</head>
 	<body class="ui" style="padding: 1em;">
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<fieldset>
 				<img src="./graphkelly144.png" title="GraphKelly 1 - OpenSource CSS stylesheet by Christophe LEMOINE (pantaflex/44 <pantaflex@tuta.io>)" style="display: block; margin: 0 auto;" />
 			</fieldset>
 		</div>
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<form action="#">
 				<fieldset>
 					<legend class="style gk big normal">GraphKelly</legend>
@@ -50,7 +50,7 @@
 			</form>
 		</div>
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<fieldset>
 				<legend>Boutons</legend>
 				<button class="primary" tabindex="0">primary</button>
@@ -93,7 +93,7 @@
 
 			<fieldset>
 				<legend>Spinners</legend>
-				<div style="display: flex; flex-flow: row; gap: 2em;">
+				<div style="display: flex; flex-flow: row wrap; gap: 2em;">
 					<div class="spinner small"></div>
 					<div class="spinner"></div>
 					<div class="spinner gk"></div>
@@ -151,11 +151,11 @@
 							vastabantur confines limitibus terrae Gallorum.</p>
 					</div>
 					<div class="form-row">
-						<div class="textarea-box" data-tooltip="Mon textarea">
+						<div class="box" data-tooltip="Mon textarea">
 							<textarea id="txta" name="txta" placeholder=" "></textarea>
 							<label for="txta">Adresse de livraison</label>
 						</div>
-						<div class="textarea-box">
+						<div class="box">
 							<textarea id="txta" name="txta" placeholder=" "></textarea>
 							<label for="txta">Adresse de facturation</label>
 						</div>
@@ -165,6 +165,16 @@
 				            <input type="file" id="file" placeholder=" ">
 				            <span>Ma pièce d'identité</span>
 				        </label>
+						<div class="box">
+							<select id="slct" placeholder=" ">
+								<option>choix 1</option>
+								<option>choix 2</option>
+								<option>choix 3</option>
+								<option>choix 4</option>
+								<option>choix 5</option>
+							</select>
+							<label for="slct">Liste de choix</label>
+						</div>
 					</div>
 					<div class="form-row marked">
 						<div>Couleur du compte</div>
@@ -262,7 +272,7 @@
 			</form>
 		</div>
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<fieldset>
 				<legend>Listes emboitées</legend>
 				<ul class="style boxed">
@@ -311,7 +321,7 @@
 			</fieldset>
 		</div>
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<fieldset>
 				<legend>Liste numérotée suivi</legend>
 				<ol>
@@ -346,7 +356,7 @@
 			<fieldset>
 		</div>
 
-		<div style="margin: auto; width: 50%">
+		<div style="margin: auto; width: 80vw">
 			<fieldset>
 				<legend>Paragraphes</legend>
 				<p data-tooltip="essai p">
