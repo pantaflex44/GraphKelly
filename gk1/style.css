@@ -1132,6 +1132,7 @@ html {
 	background-color: var(--very-lighter);
 }
 
+
 /* Spinner */
 @keyframes spinner-anim {
 	0% {
